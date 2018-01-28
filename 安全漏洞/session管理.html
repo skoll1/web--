@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>简介</h1>
+    <p>
+        Cookie Http only，设置cookie时，可以设置的一个属性，如果cookie没有设置这个属性，该cookie值可以被页面脚本读取。
+    </p>
+    <h2>解决办法</h2>
+    <ul>
+        <li>
+            在设置cookie时，加入http only属性
+        </li>
+        <li>
+            这个属性只能增加攻击者的难度，是不能都达到完全防御XSS攻击。
+        </li>
+    </ul>
+    <h1>cookie secure</h1>
+    <p>只有在https访问时，浏览器才会发送该cookie，浏览器默认只要使用http请求一个站点，就会发送明文cookie，如果网络中有监控，可能被截获。如果web应用网站全站是https的，可以设置cookie加上secure属性，这样浏览器只会在https访问是，发送cookie</p>
+    <h1>session expires:有限期安全攻击</h1>
+    <p>
+        由于session没有在web应用中设置前置超时时间，攻击者一旦曾经获取过用户的session，就可以一直使用。利用网络监听，xss等一些手段获取用户的cookie，之后就可以一直使用用户身份登录。
+    </p>
+    <h2>解决方案</h2>
+    <p>
+        在设置cookie，加入两个时间，一个是“即使一直在活动，也要失效”的时间，一个是“长时间不活动的失效时间”。并在web应用中，首先判断两个时间是否已经超时，在执行其他操作。
+    </p>
+</body>
+</html>

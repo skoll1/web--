@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>密码破解</h1>
+    <p>为了登录应用程序的非公开领域。可以通过猜测用户名、密码或者利用一些密码破解工具来达到相同的目的。如果一个web应用不强制复杂的密码，那么这个用户名和密码不用花费很长的时间就能破解</p>
+    <h1>SQL注入</h1>
+    <p>
+        在应用程序的任何一个文本框输入一个单引号应当是非法的。fa
+    </p>
+    <h1>用户权限测试</h1>
+    <ul>
+        <li>
+            对一些有权限控制的功能进行验证
+        </li>
+        <li>
+            用户A才能进行的操作，B是否能够操作（通过窜session）
+        </li>
+        <li>
+            只有a条件的用户才能查看的页面，是否b能够查看（url访问）
+        </li>
+    </ul>
+    <h1>页面权限控制</h1>
+    <ul>
+        <li>
+            必须有登录权限的页面，是否能够在不登录的情况下进行访问
+        </li>
+        <li>
+            必须经过a--b--c的页面，能否直接a--c
+        </li>
+    </ul>
+    <h1>url安全测试</h1>
+    <ul>
+        <li>
+            url中含有参数，也就是用过get方式传递的http请求
+        </li>
+        <li>
+            url参数信息检查是否正确
+        </li>
+        <li>
+            一些重要的参数信息，不应该在url中显示出来
+        </li>
+        <li>
+            修改url的一些参数，看程序是否能识别。比如修改金额能否提交成功（用户把2元的金额改成1元能提交），还有修改订单号等重要信息是否会报错
+        </li>
+        <li>
+            url参数进行XSS注入：在url中进行xss注入，也就是把url的参数改成js脚本，是否能执行
+        </li>
+        <li>
+            url参数进行SQL注入，在url中写入语句，看能否被执行
+        </li>
+    </ul>
+    <h1>表单测试提交测试</h1>
+    <ul>
+        <li>
+            表单中注入XSS脚本，程序是不是让改脚本执行。
+        </li>
+        <li>
+            在表单汇总注入SQL提交看是否会有问题
+        </li>
+    </ul>
+    <h1>session测试</h1>
+    <ul>
+        <li>
+            seesion互窜：用户a的操作被用户b执行了。方法：多tab浏览器，两个tab中都保留着的是a的session记录，然后在一个tab页面执行退出，登录b，此时两个tab页都是b的session，然后在另一个a的页面执行操作，查看是否能成功
+        </li>
+        <li>
+            session超时：基于session原理，需要验证系统session是否有超时机制，还需要验证session超时后是否能继续走下去
+        </li>
+    </ul>
+    <h1>SYN flood攻击介绍</h1>
+    <p></p>
+</body>
+</html>

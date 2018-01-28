@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        web应用程序接收到用户提交的url参数之后，没有对参数做“可信任url”的验证，就向用户浏览器返回跳转到该url的指令
+    </p>
+    <ul>
+        <li>
+            正常流程如下
+        </li>
+        <li>
+            买家发送一个商品链接给商家。买家的连接有问题。。。
+        </li>
+        <li>
+            商家用户打开链接，跳转到登录，其实这个登录页面早已经是伪造的登录页面
+        </li>
+        <li>
+            商家用户登录，之后跳转到登录前的商品页面。（此时，无论商家输什么，都会跳转到恶意攻击者指定的钓鱼页面，这个页面会显示用户“会员登录名或者密码错误”）
+        </li>
+    </ul>
+    <h1>解决方案</h1>
+    <ul>
+        <li>
+            当用户访问需要生成跳转url的页面时，首先生成随机token，并放入cookie。
+        </li>
+        <li>
+            在显示连接的页面上生成url，在url参数中加入token。
+        </li>
+        <li>
+            应用程序在跳转钱，判断token是否和cookie中的token一致，如果不一致，就判断为url跳转攻击
+        </li>
+        <li>
+            如果在js中做页面跳转，那么需要判断域名白名单后，才能跳转。
+        </li>
+    </ul>
+
+</body>
+</html>

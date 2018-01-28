@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>垂直权限安全攻击</h1>
+    <ul>
+        <li>
+            由于web应用程序没有做权限控制，或者仅仅在菜单上做了权限控制，导致恶意用户只要草测其他管理页面的url，就可以访问或者控制其他角色拥有的数据或页面，达到权限提升的目的
+        </li>
+        <li>
+            这个威胁可能导致普通用户变成管理员权限
+        </li>
+    </ul>
+    <h1>解决办法</h1>
+    <ul>
+        <li>
+            在管理页面的url时，首先判断当前用户是否拥有该页面的权限，如果没有权限就救判定为“权限提升”攻击，同时记录安全日志
+        </li>
+        <li>
+            
+        </li>
+    </ul>
+</body>
+</html>

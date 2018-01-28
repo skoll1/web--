@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>针对web应用的数据库，通过运行非法的SQL而产生的攻击，当应用程序将用户输入的内容，拼接到SQL语言中，一起交给sql语句执行的时候,就会产生SQL注入威胁</h1>
+<ul>
+    <li>
+        检索输入的时候，只要可以输入的地方都会出现，由于用户的输入也是sql语句的一部分，所以攻击者可以利用这部分可以控制的内容，注入自己定义的语句，改变sql语句的执行逻辑，让数据库执行自己需要的指令。
+    </li>
+    <h1>
+        解决办法
+    </h1>
+    <p>使用与预处理执行SQL语句，对所有传入的SQL语句中的变量，做绑定。这样不论用户凭借进来的是什么变量，都会被当做替代符号所替代的值，数据库也不会把恶意用户凭借进来的数据，当做部分SQL语句解析</p>
+</ul>
+</body>
+</html>

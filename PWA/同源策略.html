@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>同源策略:互联网安全的基石，他对从一个源加载的文档或脚本如何与来自另一个源的资源进行交互做出了限制。每一个源都与其他网络保持隔离，从而为开发者进行构建和操作</h1>
+    <ul>
+        <li>
+            不受限制的内嵌资源
+            <ul>
+                <li>
+                    <script></script>:标签嵌入跨域脚本
+                </li>
+                <li>
+                    <link rel="stylesheet" href="">:标签嵌入css
+                </li>
+                <li>
+                    img嵌入图片
+                </li>
+                <li>video audio:嵌入多媒体资源</li>
+                <li>
+                    object,embed,applet等插件
+                </li>
+                <li>
+                    @font-face引入的字体
+                </li>
+                <li>
+                    <frame>,iframe载入的任何资源。但是站点可以使用X-Frame-Options消息头来阻止这种形式的跨域交互
+                </li>
+            </ul>
+        </li>
+        <li>
+            限制范围：主要有以下三种行为
+            <ul>
+                <li>
+                    无法共享cookie,localStorage,indexDB
+                </li> 
+                <li>
+                   无法操作彼此的DOM元素 
+                </li>  
+                <li>
+                    无法发送ajax操作
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

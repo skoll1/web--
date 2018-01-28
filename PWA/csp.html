@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; child-src https:">
+</head>
+<body>
+    <h1>CSP内容安全策略</h1>
+    <ul>
+        <li>
+            减少，并有效报告XSS攻击，其实质上就是让开发者订制一份白名单，告诉浏览器允许加载，执行的外部资源。这样的话即使攻击者能够发现可以注入脚本的漏洞，但是脚本不在
+            白名单之列，浏览器还是不会执行该脚本，从而达到降低客户端遭受xss攻击风险和影响的目的。
+        </li>
+        <li>
+            默认配置下，csp甚至不允许执行内联代码（script,块内容，内联事件，内联样式），以及禁止执行eval()，setTimeout()和setInterval()。因为制定来源白名单无法解决XSS攻击最大的威胁：内联脚本注入
+        </li>
+        <li>
+            启用csp的方法
+            <ul>
+                <li>
+                    设置HTTP头的Content-Security-Policy--Content-Security-Policy: script-src 'self'; object-src 'none';style-src cdn.example.org third-party.org; child-src https:
+                </li>
+                <li>
+                    设置页面的meta标签 
+                </li>
+                <li>
+                    标签解读
+                    <ul>
+                        <li>
+                            script:只新任当前域名
+                        </li>
+                        <li>
+                            object-src:不允许加载任何插件资源 如object,embed,applet,falsh等插件
+                        </li>
+                        <li>
+                            样式:只信任来自cdn.example.org,thrid-party.org
+                        </li>
+                        <li>
+                            框架内容：必须使用https协议加载
+                        </li>
+                        <li>
+                            style-src
+                        </li>
+                        <li>
+                            img-src
+                        </li>
+                        <li>
+                            media-src
+                        </li>
+                        <li>
+                            font-src:字体文件
+                        </li>
+                        <li>
+                            object-src:插件
+                        </li>
+                        <li>
+                            child-src:框架
+                        </li>
+                        <li>
+                            manifest-src:文件
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    每个配置选项的值，可填入以下内容
+                    <ul>
+                        <li>
+                            主机名：example.org
+                        </li>
+                        <li>
+                            路径名：example.org/resources/js/
+                        </li>
+                        <li>
+                            通配符：*.example.org(表示任意协议，任意子域名，任意端口)
+                        </li>
+                        <li>
+                            协议名:https
+                        </li>
+                        <li>
+                            关键字：'self':当前域名
+                        </li>
+                        <li>
+                            'none':禁止加载任何外部资源，需要加引号
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
